@@ -13,9 +13,11 @@
 <a href="moduleList">List of modules</a>
 <p class="Question">How do I contribute?</p>
 <ol>
-  <li><a href="contribute">Email Me</a></li>
-  <li><a href="contribute">Clone the git repository</a></li>
-  <li>Push your code.</li>
+  <li><a href="https://github.com/">Create an account on GitHub</a></li>
+  <li><a href="contact">Email Me</a></li>
+  <li>Clone</li>
+  <li>Create</li>
+  <li>Push</li>
 </ol>
 <p class="Question">Can you point me to other good references?</p>
 <span class="BlockSpan"><a href="http://www.yiiframework.com/doc/">Yii documentation</a></span>

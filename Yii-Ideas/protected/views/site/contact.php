@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
 
 <?php else: ?>
 
-<p>Got a suggestion?  Need help?</p>
+<p>Want to contribute?  Got a suggestion?  Need help?</p>
 
 <div class="form">
 
