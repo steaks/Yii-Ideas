@@ -4,9 +4,9 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright Copyright &copy; 2008-2011 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2010 Yii Software LLC
  * @license http://www.yiiframework.com/license/
- * @version $Id: yii.php 2799 2011-01-01 19:31:13Z qiang.xue $
+ * @version $Id: yii.php 1678 2010-01-07 21:02:00Z qiang.xue $
  * @package system
  * @since 1.0
  */
@@ -20,10 +20,44 @@ require(dirname(__FILE__).'/YiiBase.php');
  * By writing your own Yii class, you can customize some functionalities of YiiBase.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @version $Id: yii.php 2799 2011-01-01 19:31:13Z qiang.xue $
+ * @version $Id: yii.php 1678 2010-01-07 21:02:00Z qiang.xue $
  * @package system
  * @since 1.0
  */
 class Yii extends YiiBase
 {
+  /**
+   * Returns web root directory
+   * @return string web root directory
+   */
+  public static function GetWebRoot()
+  {
+    return dirname(Yii::app()->getBasePath());
+  }
+  
+  /**
+   * Note: This function is for function hinting only.
+	 * @return CWebApplication the application singleton, null if the singleton has not been created yet.
+	 */
+	public static function app()
+	{
+		return parent::app();
+	}
+  
+  /**
+   * Adds objects in array as javascript variables
+   * @param array $globalVariables 
+   */
+  public static function AddGlobalJavascriptVariables($globalVariables)
+  {
+    ?><script type="text/javascript">
+    <?php
+    foreach($globalVariables as $key=>$value)
+    {
+      $jsonValue = CJSON::encode($value);
+      echo "var $key = $jsonValue; ";
+    }
+    ?>
+    </script><?php    
+  }
 }

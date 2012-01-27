@@ -2,7 +2,7 @@
 
 class MyController extends Controller
 {
-  private $_base;
+  private $_moduleBase;
   private $_id;
   
   /**
@@ -14,7 +14,7 @@ class MyController extends Controller
   {
     parent::__construct($id, $module);
     $this->_id = $id;
-    $this->_base = Yii::app()->getBasePath();
+    $this->_moduleBase = Yii::app()->getBasePath().'/modules/AlternativeMVCPattern';
     Yii::app()->getClientScript()->registerCoreScript('jquery');
     
   }
@@ -30,16 +30,10 @@ class MyController extends Controller
 	 * @see renderPartial
 	 * @see getLayoutFile
 	 */
-	public function render($view, $data = null, $return = false, $BindJS = true, $BindCSS = true)
+	public function render($view, $data = null, $return = false)
   {
-    if($BindJS)
-    {
-      $this->bindJS($data['model'], $view);
-    }
-    if($BindCSS)
-    {
-      $this->BindCSS($view);
-    }
+    $this->bindJS($data['model'], $view);
+    $this->BindCSS($view);
     parent::render($view, $data, $return);
   }
         
@@ -53,7 +47,7 @@ class MyController extends Controller
    */   
   private function BindJS(MyViewModel $VM, $jsFileName)
   {
-    $js_url = "$this->_base/assets/$this->_id/js/$jsFileName.js";
+    $js_url = "$this->_moduleBase/assets/$this->_id/js/$jsFileName.js";
     if(!file_exists($js_url))
     {
       return;
@@ -73,7 +67,7 @@ class MyController extends Controller
    */
   private function BindCSS($cssFileName)
   { 
-    $css_url = "$this->_base/assets/$this->_id/css/$cssFileName.css";
+    $css_url = "$this->_moduleBase/assets/$this->_id/css/$cssFileName.css";
     if(!file_exists($css_url))
     {
       return;
@@ -119,7 +113,7 @@ class MyController extends Controller
   private function RegisterJSDependencies($jsFileName)
   {
     /* @var $xml SimpleXMLElement */
-    $xml = simplexml_load_file("$this->_base/assets/$this->_id/js/{$jsFileName}JS.xml");
+    $xml = simplexml_load_file("$this->_moduleBase/assets/$this->_id/js/{$jsFileName}JS.xml");
     /* @var $requirements SimpleXMLElement */
     $requirements = $xml->children();
     /* @var $requirement SimpleXMLElement */
@@ -127,7 +121,7 @@ class MyController extends Controller
     {
       $attributes = $requirement->attributes();
       "{$attributes["Root"]}" === "Base" ?
-        $js_url = "$this->_base/assets/$requirement" : $js_url = "$requirement";
+        $js_url = "$this->_moduleBase/assets/$requirement" : $js_url = "$requirement";
       $js_url = Yii::app()->getAssetManager()->publish($js_url);
       Yii::app()->getClientScript()->registerScriptFile($js_url);    
     }
@@ -141,7 +135,7 @@ class MyController extends Controller
   private function RegisterCSSDependencies($cssFileName)
   {
     /* @var $xml SimpleXMLElement */
-    $xml = simplexml_load_file("$this->_base/assets/$this->_id/css/{$cssFileName}CSS.xml");
+    $xml = simplexml_load_file("$this->_moduleBase/assets/$this->_id/css/{$cssFileName}CSS.xml");
     /* @var $requirements SimpleXMLElement */
     $requirements = $xml->children();
     /* @var $requirement SimpleXMLElement */
@@ -149,7 +143,7 @@ class MyController extends Controller
     {
       $attributes = $requirement->attributes();
       "{$attributes["Root"]}" === "Base" ?
-        $css_url = "$this->_base/assets/$requirement" : $css_url = "$requirement";
+        $css_url = "$this->_moduleBase/assets/$requirement" : $css_url = "$requirement";
       $css_url = Yii::app()->getAssetManager()->publish($css_url);
       Yii::app()->getClientScript()->registerScriptFile($css_url);    
     }

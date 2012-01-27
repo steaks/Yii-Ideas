@@ -29,15 +29,6 @@ class SiteController extends MyController
 	{
 		$this->render('SiteIndex', array('model'=>new SiteIndexVM()));
 	}
-  
-  /**
-	 * This is the default 'index' action that is invoked
-	 * when an action is not explicitly requested by users.
-	 */
-	public function actionModuleList()
-	{
-		$this->render('ModuleList', array('model'=>new ModuleListVM()));
-	}
 
 	/**
 	 * This is the action to handle external exceptions.
@@ -49,7 +40,7 @@ class SiteController extends MyController
 	    	if(Yii::app()->request->isAjaxRequest)
 	    		echo $error['message'];
 	    	else
-	        	$this->render('error', $error, false, false, false);
+	        	$this->render('error', $error);
 	    }
 	}
 
@@ -70,7 +61,7 @@ class SiteController extends MyController
 				$this->refresh();
 			}
 		}
-		$this->render('contact',array('model'=>$model), false, false, false);
+		$this->render('contact',array('model'=>$model));
 	}
 
 	/**
@@ -96,7 +87,7 @@ class SiteController extends MyController
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form
-		$this->render('login',array('model'=>$model), false, false, false);
+		$this->render('login',array('model'=>$model));
 	}
 
 	/**

@@ -27,7 +27,6 @@ class SiteIndexVM extends MyViewModel
           
   public function __construct()    
   {
-    parent::__construct();
     $this->PropertyBoundToJavascript = "I am rendered by SiteIndex.js and marked up by SiteIndex.css.  (See SiteIndexVM.  I have the JSON attribute)";
     $this->PropertyNotBountToJavascript = "I am rendered by SiteIndex.php and marked up by SiteIndex.css";
     $this->ColumnFromTableOne = MyFakeActiveRecordOne::GetFakeColumn();
