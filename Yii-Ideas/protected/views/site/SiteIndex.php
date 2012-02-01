@@ -10,7 +10,7 @@
   <li>Anyone can contribute to this site.</li>
 </ul>
 <p class="Question">Where do I start?</p>
-<a href="site/moduleList">List of modules</a>
+<a href="moduleList">List of modules</a>
 <p class="Question">How do I contribute?</p>
 <ol>
   <li><a href="https://github.com/" target="_blank">Create an account on GitHub</a></li>
