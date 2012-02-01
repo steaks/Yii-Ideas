@@ -12,13 +12,9 @@
   <li class="Bold">CSS: <tt><?php echo 'protected/modules/AlternativeMVCPattern/assets/SiteIndex/css/SiteIndex.css'?></tt></li>
   <li class="Bold">Active Record One: <tt><?php echo 'protected/modules/AlternativeMVCPattern/data/ar/MyFakeActiveRecordOne.php'; ?></tt></li>	
   <li class="Bold">Active Record Two: <tt><?php echo 'protected/modules/AlternativeMVCPattern/data/ar/MyFakeActiveRecordTwo.php'; ?></tt></li>	
+  <li class="Bold">Parent Contoller: <tt><?php echo 'protected/modules/AlternativeMVCPattern/components/MyController.php'?></tt></li>
+  <li class="Bold">Parent View Model: <tt><?php echo 'protected/modules/AlternativeMVCPattern/components/MyViewModel.php'?></tt></li>
 </ul>
-
-<h2>New Files Relevant For all pages</h2>
-  <ul>
-    <li class="Bold">Parent Contoller: <tt><?php echo 'protected/modules/AlternativeMVCPattern/components/MyController.php'?></tt></li>
-    <li class="Bold">Parent View Model: <tt><?php echo 'protected/modules/AlternativeMVCPattern/components/MyViewModel.php'?></tt></li>
-  </ul>
 
 <div id="ModelProperties">
   <h2>Model properties:</h2>
