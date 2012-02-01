@@ -7,7 +7,7 @@
 <ul>
   <li class="Bold">Controller: <tt><?php echo 'protected/modules/AlternativeMVCPattern/controllers/SiteController.php'; ?></tt></li>
   <li class="Bold">Model: <tt><?php echo 'protected/modules/AlternativeMVCPattern/models/SiteIndexVM.php'; ?></tt></li>	
-  <li class="Bold">View: <tt><?php echo __FILE__; ?></tt></li>
+  <li class="Bold">View: <tt><?php echo 'protected/modules/AlternativeMVCPattern/views/site/SiteIndex.php'; ?></tt></li>	
   <li class="Bold">Javascript: <tt><?php echo 'protected/modules/AlternativeMVCPattern/assets/SiteIndex/js/SiteIndex.js'?></tt></li>
   <li class="Bold">CSS: <tt><?php echo 'protected/modules/AlternativeMVCPattern/assets/SiteIndex/css/SiteIndex.css'?></tt></li>
   <li class="Bold">Active Record One: <tt><?php echo 'protected/modules/AlternativeMVCPattern/data/ar/MyFakeActiveRecordOne.php'; ?></tt></li>	
